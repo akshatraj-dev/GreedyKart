@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #FAF8F5;
+    color: #18181B;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@keyframes speedLineSlide {
+  0% {
+    transform: translateX(-120%) skewX(-24deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(120%) skewX(-24deg);
+    opacity: 0;
+  }
+}
+
+@keyframes eqBarBounce {
+  0%, 100% {
+    transform: scaleY(0.18);
+  }
+  50% {
+    transform: scaleY(0.95);
+  }
+}
+
+@keyframes mistDrift {
+  0% {
+    transform: translate3d(-8%, 4%, 0) scale(0.92);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.65;
+  }
+  100% {
+    transform: translate3d(12%, -10%, 0) scale(1.18);
+    opacity: 0;
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes lensSweep {
+  0% {
+    transform: translateX(-140%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(240%) rotate(25deg);
+  }
+}
+
+@keyframes cameraFlashPulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  30% {
+    opacity: 0;
+  }
+}
+
+.animate-speed-line {
+  animation: speedLineSlide 0.65s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-eq-bar {
+  transform-origin: bottom center;
+  animation: eqBarBounce 0.55s ease-in-out infinite;
+}
+
+.animate-mist-drift {
+  animation: mistDrift 2.6s ease-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-speed-line,
+  .animate-eq-bar,
+  .animate-mist-drift,
+  .animate-float-slow {
+    animation: none !important;
+  }
+}
+
